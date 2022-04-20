@@ -1,0 +1,16 @@
+---
+title: Home
+layout: layouts/base.njk
+url: /
+---
+<p class="py-6">This website is used for me to learn and test new stuff.</p>
+
+<p class="py-6">It caches itself, so if some bug is happening, destroy the cache in the button bellow!</p>
+
+<button class="btn btn-outline rounded-xl cursor-pointer p-4 bg-red-900 hover:bg-red-800 transition-colors w-11/12 mx-auto" onclick="destroyTheCache()">Destroy the cache</button>
+
+<p class="py-6">If you check the sources / logs, you'll see that I'm trying to make a client-side router using browser-native APIs. Those are experimental at time of writing.</p>
+
+<p class="py-6">I call it the 'GambiRouter', it is kinda of an MPA/SPA combo.</p>
+<p class="py-6">Currently your browser <span id="browserSupportStatus" class="text-white">...</span> the Navigation API. <span id="viewTransitionSupport" class="hidden"> And also the View Transitions API!</span></p>
+<p class="py-6" id="sinceSupports">Since your browser supports it, try <a href="/implementation">navigating to other pages</a> and see the magic of an SPA like app.</p>

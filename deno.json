@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "lume/": "https://deno.land/x/lume@v2.4.3/"
+  },
+  "tasks": {
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
+    "build": "BUILD=production deno task lume",
+    "dev": "deno task lume -s -o"
+  },
+  "compilerOptions": {
+    "types": [
+      "lume/types.ts"
+    ]
+  }
+}

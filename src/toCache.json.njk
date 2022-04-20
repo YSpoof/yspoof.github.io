@@ -1,0 +1,8 @@
+---
+url: /toCache.json
+---
+[
+{% for page in collections.all %}
+    "{{ meta.url }}{{ page.url }}"{% if not loop.last %}, {% endif %}
+{% endfor %}
+]

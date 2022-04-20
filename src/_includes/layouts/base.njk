@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt_BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{{ meta.url }}">
+
+    <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- Meta OG --> 
+    <title>{{ title }} | {{ meta.siteName }}</title>
+    <meta property="og:title" content="{{ title }} | {{ meta.siteName }}">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="description" content="{{ meta.description }}">
+    <meta property="og:description" content="{{ meta.description }}">
+    <link rel="canonical" href="{{ meta.url }}">
+    <meta property="og:url" content="{{ meta.url }}">
+    <meta property="og:site_name" content="{{ title }} | {{ meta.siteName }}">
+    <meta property="og:image" content="{{ meta.url }}/assets/images/default.webp">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="{{ meta.url }}/assets/images/default.webp" />
+    <meta property="twitter:title" content="{{ title }} | {{ meta.siteName }}" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","description":"{{ meta.description }}","headline":"{{ title }} | {{ meta.siteName }}","image":"{{ meta.url }}/assets/images/default.webp","name":"{{ title }} | {{ meta.siteName }}","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"{{ meta.url }}/assets/images/default.webp"}},"url":"{{ meta.url }}/"}</script>
+
+
+  <title>{{ title }} | {{ meta.siteName }}</title>
+</head>
+<body class="bg-stone-950 text-stone-300">
+  <header class="flex flex-col justify-center items-center py-2 md:flex-row max-w-screen mx-auto bg-stone-900 fixed top-0 w-full">
+  <div class="flex flex-row justify-around items-center w-full">
+    <a href="/">
+      <p class="text-2xl font-bold p-2">YSPoof</p>
+    </a>
+    <nav class="p-4">
+      <ul class="flex gap-2">
+        {% for link in meta.navMenu %}
+        <li>
+          <a class="py-3 px-6 bg-stone-800 hover:bg-stone-700 transition-colors rounded-xl" href="{{ link.url }}">{{ link.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      </nav>
+  </div>
+</header>
+<main id="mainContent" class="flex flex-col mx-auto p-2 max-w-screen-md h-full mt-16">
+  <h1 class="[view-transition-name:page-title] font-bold text-4xl py-8">{{ title }} </h1>
+  {{ content  }}
+</main>
+<dialog class="modal" id="errorDialog">
+  <div class="modal-box">
+    <h3>OOps, some error have occured.</h3>
+    <p class="py-4" id="errorInfo">PLACEHOLDER</p>
+    <div class="modal-action">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    </div>
+  </div>
+</dialog>
+<footer class="footer footer-center text-base-content p-4 bg-base-300 mx-auto max-w-screen text-center bg-stone-900 fixed bottom-0 w-full">
+  <p class="block">Developed by <a class="underline" href="https://lzart.com.br">LZArt</a></p>
+</footer>
+  <script src="/assets/js/router.js" type="module"></script>
+</body>
+</html>
