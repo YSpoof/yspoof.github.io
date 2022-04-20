@@ -1,0 +1,116 @@
+* {
+    color: #fff;
+}
+
+body, ul {
+    margin: 0px;
+    padding: 0;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+a:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#header {
+    box-sizing: border-box;
+    height: 70px;
+    width: 100%;
+    top: 0;
+    padding: 1rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2c2c2c;
+    position:sticky;
+}
+
+#menu {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+    padding: 5px;
+}
+
+#menu a {
+    display: block;
+    padding: .5rem;
+}
+
+#btn-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #btn-mobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+    #hamb {
+        width: 20px;
+        border-top: 2px solid;
+        display: block;
+        transition: .12s;
+    }
+    #hamb::after, #hamb::before {
+       content: '';
+       display: block;
+       width: 20px; 
+       height: 2px;
+       margin-top: 5px;
+       background: currentColor;
+       transition: .6s;
+       position: relative;
+    }
+    #menu {
+        display: block;
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        height: 0px;
+        z-index: 1000;
+        text-align: center;
+        background: #2c2c2c;
+        transition: .6s;
+        overflow-y: hidden;
+    }
+    #menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+    #nav.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+    #nav.active #hamb {
+        border-top-color: transparent;
+    }
+    #nav.active #hamb::before {
+        transform: 
+        rotate(135deg);
+    }
+    #nav.active #hamb::after {
+        transform: 
+        rotate(-135deg);
+        top: -7px;
+    }
+}
