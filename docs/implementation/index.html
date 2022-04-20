@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt_BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="https://yspoof.github.io">
+
+    <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- Meta OG --> 
+    <title>Implementation | YSPoof's Test Place</title>
+    <meta property="og:title" content="Implementation | YSPoof's Test Place">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="description" content="Just a test place for Me lol">
+    <meta property="og:description" content="Just a test place for Me lol">
+    <link rel="canonical" href="https://yspoof.github.io">
+    <meta property="og:url" content="https://yspoof.github.io">
+    <meta property="og:site_name" content="Implementation | YSPoof's Test Place">
+    <meta property="og:image" content="https://yspoof.github.io/assets/images/default.webp">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://yspoof.github.io/assets/images/default.webp" />
+    <meta property="twitter:title" content="Implementation | YSPoof's Test Place" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","description":"Just a test place for Me lol","headline":"Implementation | YSPoof's Test Place","image":"https://yspoof.github.io/assets/images/default.webp","name":"Implementation | YSPoof's Test Place","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://yspoof.github.io/assets/images/default.webp"}},"url":"https://yspoof.github.io/"}</script>
+
+
+  <title>Implementation | YSPoof's Test Place</title>
+</head>
+<body>
+  <header class="flex flex-col justify-between items-center px-4 md:flex-row">
+  <a href="/">
+    <p class="text-2xl font-bold p-2">YSPoof</p>
+  </a>
+  <nav class="p-2">
+    <ul class="flex gap-2">
+      <li>
+        <a class="btn btn-neutral rounded-xl" href="/">Home</a>
+      </li>
+      <li>
+        <a class="btn btn-neutral rounded-xl" href="/implementation/">implementation</a>
+      </li>
+      <li>
+        <a class="btn btn-neutral rounded-xl" href="/whoami/">About me</a>
+      </li>
+    </ul>
+    </nav>
+</header>
+<main id="mainContent" class="prose flex flex-col justify-center mx-auto p-2">
+  <h1 class="[view-transition-name:page-title]">Implementation </h1>
+  <div class="join">
+  <div class="join-item">
+    <h2 class="text-center">Advantages:</h2>
+    <ul>
+      <li><a href="/implementation/#easy-implementation">Easy implementation</a></li>
+      <li><a href="/implementation/#no-ss-config">No server-side config</a></li>
+      <li><a href="/implementation/#not-on-all-browsers">Automatic history pushes</a></li>
+      <li><a href="/implementation/#smooth-transitions">Smooth transitions</a></li>
+      <li><a href="/implementation/#seo-friendly">SEO friendly</a></li>
+    </ul>
+  </div>
+  
+  <div class="join-item">
+    <h2 class="text-center">Disadvantages:</h2>
+    <ul>
+      <li><a href="/implementation/#probably-a-bit-heavy">Probably a bit heavy</a></li>
+      <li><a href="/implementation/#scripts-need-to-be-different">Scripts need to be crafted diferently</a></li>
+      <li><a href="/implementation/#not-on-all-browsers">Currently doesn't work on all browsers</a></li>
+      <li><a href="/implementation/#probably-a-bit-heavy">The hole part of a page gets updated</a></li>
+      <li><a href="/implementation/#probably-a-bit-heavy">Every navigation makes a full page request</a></li>
+    </ul>
+  </div>
+</div>
+
+<h2>Why bother creating that?</h2>
+
+<p id="no-ss-config">So, the whole idea came when I was thinking about SPAs and how cool they are, but I saw that you need some special thing in the server, like, you need to always send a default index.html wich contains the script to handle the routes and stuff (I'm talking about doing it vanilla, but AFAIK the frameworks like React / VUE / ETC do that in background when you spin-up a server with those...).</p>
+
+<p>Besides that, you also need to define any route manually and have complex strutctures that's harder at least for me as <a href="/whoami">not being a developer</a>.</p>
+
+<p id="seo-friendly">Other types of routers can also break SEO, since when the bot tries a direct path like 'domain/a-sample-page' it get's redirect to the home, then a script tries to find the route and re-draw the page.</p>
+
+<p id="not-on-all-browsers">So, my approach is way simpler and uses a native API called 'NavigationAPI', it handles lots of stuff like pushing history states, with that API, you don't need to define any route, the magic happens automatic.</p>
+
+<p id="easy-implementation">Just import the router script as a module, edit it to fit your needs and that's it, also, that's just a POC, so I better not recommend it for production unless you <span class="line-through">are dumb like me and</span> like experimenting.</p>
+
+<p>About SEO, it does't break, since the multiple pages (MPA) still exists and are full normal pages directly accessible, the router only takes control after the page has loaded.</p>
+
+<p id="probably-a-bit-heavy">Because of that, the entire page needs to still be downloaded, and the main part extracted and added to the current DOM for it to render.</p>
+
+<p id="smooth-transitions"> This makes it easy to use the View Transitions API, another experimental one, but I saw that MPAs are going to get this too in the near future.</p>
+
+<p id="scripts-need-to-be-different">Also, the scripts need to be made a bit different, since the DOM changes, you need to recall whatever is listening to it, like events, elements selectors and stuff.</p>
+
+<p>Fun fact: 'Gambi' in the name comes from the word 'gambiarra' that here in Brazil means something like 'improvisation' or 'workaround', a thing that should be set temporarely but we gently 'forget about it' since it 'works'.</p>
+
+<p>You can check the source code of the <a href="https://github.com/YSpoof/yspoof.github.io/blob/main/src/assets/js/router.js" target="_blank">router</a> and the <a href="https://github.com/YSpoof/yspoof.github.io/blob/main/src/assets/js/example.js" target="_blank">example script</a>.</p>
+</main>
+<dialog class="modal" id="errorDialog">
+  <div class="modal-box">
+    <h3>OOps, some error have occured.</h3>
+    <p class="py-4" id="errorInfo">PLACEHOLDER</p>
+    <div class="modal-action">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    </div>
+  </div>
+</dialog>
+<footer class="footer footer-center text-base-content p-4 bg-base-300">
+  <p class="block">Developed by <a class="underline" href="https://lzart.com.br">LZArt</a></p>
+</footer>
+  <script src="/assets/js/router.js" type="module"></script>
+</body>
+</html>
