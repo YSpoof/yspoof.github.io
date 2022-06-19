@@ -1,5 +1,6 @@
 * {
     color: #fff;
+    box-sizing: border-box;
 }
 
 body, ul {
@@ -49,6 +50,43 @@ a:hover {
 
 #btn-mobile {
     display: none;
+}
+
+.produtos {
+    background-color: tomato;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.produtos > a {
+    flex: 1 1 300px;
+    display: flex;
+    padding-bottom: 33.34px;
+    justify-content: center;
+    }
+
+.produtos > .overlay {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+.produtos > a > img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
 }
 
 @media (max-width: 600px) {
